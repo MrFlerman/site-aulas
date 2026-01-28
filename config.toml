@@ -1,7 +1,6 @@
 baseURL = "https://example.com/"
 languageCode = "pt-br"
 title = "Estado, Política e História do Direito"
-theme = ""
 
 [params]
   professor = "Felipe Cittolin Abal"
