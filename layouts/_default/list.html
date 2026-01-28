@@ -30,12 +30,13 @@
 {{ define "main" }}
 <main class="main-container">
     <div class="lessons-grid">
-        {{ range sort (where .RegularPages "Params.numero" "!=" nil) ".Params.numero" }}
+        {{ range .RegularPages }}
+        {{ if .Params.numero }}
         <a href="{{ .Permalink }}" class="lesson-card">
             <div class="lesson-header">
                 <div class="lesson-meta">
-                    <span class="lesson-number">Aula {{ printf "%02d" .Params.numero }}</span>
-                    <span class="lesson-date">{{ .Date.Day }} de {{ index (slice "janeiro" "fevereiro" "março" "abril" "maio" "junho" "julho" "agosto" "setembro" "outubro" "novembro" "dezembro") (sub .Date.Month 1) }}, {{ .Date.Year }}</span>
+                    <span class="lesson-number">Aula {{ .Params.numero }}</span>
+                    <span class="lesson-date">{{ .Date.Format "02/01/2006" }}</span>
                 </div>
                 <h3 class="lesson-title">{{ .Title }}</h3>
                 <p class="lesson-period">{{ .Params.periodo }}</p>
@@ -47,6 +48,7 @@
                 <span class="lesson-duration">{{ .Params.duracao }}</span>
             </div>
         </a>
+        {{ end }}
         {{ end }}
     </div>
 </main>
