@@ -30,8 +30,7 @@
 {{ define "main" }}
 <main class="main-container">
     <div class="lessons-grid">
-       {{ range .Pages.ByParam "numero" }}
-    {{ if .Params.numero }}
+        {{ range sort (where .RegularPages "Params.numero" "!=" nil) ".Params.numero" }}
         <a href="{{ .Permalink }}" class="lesson-card">
             <div class="lesson-header">
                 <div class="lesson-meta">
@@ -46,11 +45,10 @@
             </div>
             <div class="lesson-footer">
                 <span class="lesson-duration">{{ .Params.duracao }}</span>
-     </div>
-    </a>
-    {{ end }}
-    {{ end }}
-</div>
+            </div>
+        </a>
+        {{ end }}
+    </div>
 </main>
 {{ end }}
 
