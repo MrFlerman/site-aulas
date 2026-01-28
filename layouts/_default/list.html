@@ -30,7 +30,7 @@
 {{ define "main" }}
 <main class="main-container">
     <div class="lessons-grid">
-        {{ range (where .Pages "Params.numero" "!=" nil) }}
+        {{ range .Pages.ByParam "numero" }}
         <a href="{{ .Permalink }}" class="lesson-card">
             <div class="lesson-header">
                 <div class="lesson-meta">
