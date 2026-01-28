@@ -35,7 +35,7 @@
             <div class="lesson-header">
                 <div class="lesson-meta">
                     <span class="lesson-number">Aula {{ printf "%02d" .Params.numero }}</span>
-<span class="lesson-date">{{ .Date.Day }} de {{ index (slice "janeiro" "fevereiro" "março" "abril" "maio" "junho" "julho" "agosto" "setembro" "outubro" "novembro" "dezembro") (sub .Date.Month 1) }}, {{ .Date.Year }}</span>
+                    <span class="lesson-date">{{ .Date.Day }} de {{ index (slice "janeiro" "fevereiro" "março" "abril" "maio" "junho" "julho" "agosto" "setembro" "outubro" "novembro" "dezembro") (sub .Date.Month 1) }}, {{ .Date.Year }}</span>
                 </div>
                 <h3 class="lesson-title">{{ .Title }}</h3>
                 <p class="lesson-period">{{ .Params.periodo }}</p>
