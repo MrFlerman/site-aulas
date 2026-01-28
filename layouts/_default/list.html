@@ -19,3 +19,48 @@
                 <span class="info-value">{{ .Site.Params.carga_horaria }}</span>
             </div>
             <div class="info-item">
+                <span class="info-label">Modalidade</span>
+                <span class="info-value">{{ .Site.Params.modalidade }}</span>
+            </div>
+        </div>
+    </div>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<main class="main-container">
+    <p>DEBUG: Total de páginas: {{ len .Pages }}</p>
+    <p>DEBUG: Tipo: {{ .Type }}</p>
+    
+    <div class="lessons-grid">
+        {{ $pages := .Pages }}
+        {{ range $pages }}
+        <a href="{{ .Permalink }}" class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-meta">
+                    <span class="lesson-number">Aula {{ default "?" .Params.numero }}</span>
+                    <span class="lesson-date">{{ .Date.Format "02/01/2006" }}</span>
+                </div>
+                <h3 class="lesson-title">{{ .Title }}</h3>
+                <p class="lesson-period">{{ .Params.periodo }}</p>
+            </div>
+            <div class="lesson-body">
+                <p class="lesson-description">{{ .Params.descricao }}</p>
+            </div>
+            <div class="lesson-footer">
+                <span class="lesson-duration">{{ .Params.duracao }}</span>
+            </div>
+        </a>
+        {{ end }}
+    </div>
+</main>
+{{ end }}
+
+{{ define "footer" }}
+<footer>
+    <p><strong>{{ .Site.Title }}</strong></p>
+    <p>{{ .Site.Params.universidade }} - Faculdade de Direito</p>
+    <p style="margin-top: 1rem;">{{ .Site.Params.professor }} | <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+    <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.7;">© 2025 - Todos os direitos reservados</p>
+</footer>
+{{ end }}
