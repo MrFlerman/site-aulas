@@ -1,0 +1,15 @@
+baseURL = "https://example.com/"
+languageCode = "pt-br"
+title = "Estado, Política e História do Direito"
+theme = ""
+
+[params]
+  professor = "Felipe Cittolin Abal"
+  universidade = "Universidade de Passo Fundo"
+  periodo = "2025/1"
+  carga_horaria = "80 horas"
+  modalidade = "Ensino a Distância"
+  email = "felipe@upf.br"
+
+[taxonomies]
+  categoria = "categorias"
